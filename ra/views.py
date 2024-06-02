@@ -2,7 +2,7 @@ import os
 import time
 
 import requests
-from bs4 import BeautifulSoup
+import json
 from django.shortcuts import render
 from dotenv import load_dotenv
 
@@ -27,7 +27,7 @@ def load(request):
         puuid = requests.post(f'https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/{username}/{tag}', headers=header)
         if puuid.status_code == 200:
             time.sleep(0.3)
-            match_id = request.post(f'https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids?start=0&count=1', headers=header)
+            match_id = requests.post(f'https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids?start=0&count=1', headers=header)
             if match_id.status_code == 200:
-                soup = BeautifulSoup(match_id.text, 'html.parser')
+                soup = json.loads(match_id.text)
                 
