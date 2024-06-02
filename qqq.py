@@ -44,4 +44,4 @@ with requests.Session() as session:
         for i in range(start_index, end_index + 1):
             champion_names.append(load_matches_info['info']['participants'][i]['championName'])
         for idx, champion_name in enumerate(champion_names, start=start_index):
-            print(f"Participant {idx}: {champion_name}")
+            print(f"User {idx}: {champion_name}")
