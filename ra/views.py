@@ -7,6 +7,11 @@ import requests
 import json
 from django.shortcuts import render, redirect
 from dotenv import load_dotenv
+import pandas as pd
+
+# 챔피언 이름 한글화
+df = pd.read_csv('./KORLIST.csv', encoding='euc-kr')
+name_dict = pd.Series(df.B.values, index=df.A).to_dict()
 
 load_dotenv()
 
@@ -16,6 +21,9 @@ def home(request):
         tag = request.POST.get('tag')
         return redirect('get_match_info', username=username, tag=tag)
     return render(request, 'home.html')
+
+def get_korean_name(english_name):
+    return name_dict.get(english_name, "이름을 찾을 수 없습니다.")
 
 def get_match_info(request, username, tag):
     token = os.getenv('KEY')
@@ -73,8 +81,9 @@ def get_match_info(request, username, tag):
             participants = match_info['info']['participants']
             team_participants = defaultdict(list)
             for participant in participants:
+                korean_name = get_korean_name(participant['championName'])
                 team_participants[participant['placement']].append({
-                    'champion_name': participant['championName'],
+                    'champion_name': korean_name,
                     'username': participant['riotIdGameName'],
                     'tagline': participant['riotIdTagline'],
                     'kda': f"{participant['kills']}/{participant['deaths']}/{participant['assists']}",
