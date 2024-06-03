@@ -12,9 +12,10 @@
 
 #### Guide
 1. .env -> Your Riot Key
-2. python manage.py runserver
-3. http://127.0.0.1:8000/ra/
-4. Username and Tagline / search
+2. pip install -r requirements.txt
+3. python manage.py runserver
+4. http://127.0.0.1:8000/ra/
+5. Username and Tagline / search
 
 ![docs](https://raw.githubusercontent.com/pozuhtuhv/0000_imgstorage/main/framework_Django_Riot_1.png)
 
