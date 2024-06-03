@@ -4,7 +4,6 @@ import os
 import time
 from collections import defaultdict
 import requests
-import json
 from django.shortcuts import render, redirect
 from dotenv import load_dotenv
 import pandas as pd
