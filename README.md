@@ -10,5 +10,15 @@
 - /lol/match/v5/matches/{matchId} - matchId 검색
 - 리스트 노출
 
+#### Guide
+1. .env -> Your Riot Key
+2. python manage.py runserver
+3. http://127.0.0.1:8000/ra/
+4. Username and Tagline / search
+
+![docs](https://raw.githubusercontent.com/pozuhtuhv/0000_imgstorage/main/framework_Django_Riot_1.png)
+
+![docs](https://raw.githubusercontent.com/pozuhtuhv/0000_imgstorage/main/framework_Django_Riot_2.png)
+
 ### docs
 https://developer.riotgames.com/
