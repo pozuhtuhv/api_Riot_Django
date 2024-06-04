@@ -8,6 +8,7 @@
     <h1>Match Info Lookup</h1>
     <form method="post">
         {% csrf_token %}
+        <label for="token">API Key: {{ token }}</label><br><br>
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br><br>
         <label for="tag">Tagline:</label>
