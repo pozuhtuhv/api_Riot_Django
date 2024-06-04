@@ -3,21 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Match Info</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .left {
+            flex: 1;
+        }
+        .right {
+            flex: 3;
+        }
+    </style>
 </head>
 <body>
-    <h1>게임 정보</h1>
-    <p>게임 시간: {{ game_duration }}</p>
-    {% for team, participants in team_participants %}
-        <h2>팀 {{ team }}</h2>
-        <ul>
-        {% for participant in participants %}
-            <li>
-                <strong>{{ participant.username }}</strong> ({{ participant.tagline }}) - {{ participant.champion_name }}<br>
-                K/D/A: {{ participant.kda }}<br>
-                KDA: {{ participant.kda_value }}
-            </li>
-        {% endfor %}
-        </ul>
-    {% endfor %}
+    <div class="container">
+        <div class="left">
+            <h1>게임 정보</h1>
+            <p>게임 시간: {{ game_duration }}</p>
+        </div>
+        <div class="right">
+            {% for team, participants in team_participants %}
+                <h4>팀 {{ team }}</h4>
+                <ul>
+                {% for participant in participants %}
+                    <li>
+                        <strong>{{ participant.username }}</strong> ({{ participant.tagline }}) - {{ participant.champion_name }}<br>
+                        K/D/A: {{ participant.kda }}<br>
+                        KDA: {{ participant.kda_value }}
+                    </li>
+                {% endfor %}
+                </ul>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 </html>

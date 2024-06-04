@@ -49,7 +49,8 @@ def get_puuid(username, tag, headers):
     url = f'https://asia.api.riotgames.com/riot/account/v1/accounts/by-riot-id/{username}/{tag}'
     response = requests.get(url, headers=headers)
     response.raise_for_status()
-    print(response.json())
+    # puuid 확인
+    # print(response.json())
     return response.json().get('puuid')
 
 # get match id
