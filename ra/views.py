@@ -103,32 +103,23 @@ def get_korean_name(english_name):
 def get_match_info(request, username, tag):
     try:
         headers = get_header()
+        puuid = get_puuid(username, tag, headers)
+        match_id = get_match_id(puuid, headers)
+        match_info = get_match_info_by_id(match_id, headers)
     except ValueError as e:
         return render(request, 'error.html', {'message': str(e)})
-
-    try:
-        puuid = get_puuid(username, tag, headers)
     except requests.RequestException as e:
-        return render(request, 'error.html', {'message': f'Failed to load PUUID: {e}'})
+        return render(request, 'error.html', {'message': f'Failed to load data: {e}'})
+    except Exception as e:  # Catch any other unexpected exceptions
+        return render(request, 'error.html', {'message': f'An unexpected error occurred: {e}'})
     
     time.sleep(0.3)
-    
-    try:
-        match_id = get_match_id(puuid, headers)
-    except requests.RequestException as e:
-        return render(request, 'error.html', {'message': f'Failed to load match IDs: {e}'})
-    except ValueError as e:
-        return render(request, 'error.html', {'message': str(e)})
-
-    try:
-        match_info = get_match_info_by_id(match_id, headers)
-    except requests.RequestException as e:
-        return render(request, 'error.html', {'message': f'Failed to load match info: {e}'})
     
     game_duration = calculate_game_duration(match_info)
     team_participants = get_team_participants(match_info)
 
     context = {
+        'match_id': match_id, 
         'game_duration': game_duration,
         'team_participants': team_participants
     }

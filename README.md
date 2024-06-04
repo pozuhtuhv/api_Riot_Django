@@ -9,7 +9,8 @@
 - /lol/match/v5/matches/by-puuid/{puuid}/ids - PUUID 를 이용한 매치 정보
 - /lol/match/v5/matches/{matchId} - matchId 검색
 - 리스트 노출
-
+#### Json_data
+- gameMode : ARAM(아레나), CLASSIC(솔랭)
 #### Guide
 1. .env -> Your Riot Key
 2. pip install -r requirements.txt
