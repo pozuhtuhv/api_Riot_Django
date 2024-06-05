@@ -14,7 +14,10 @@ name_dict = pd.Series(df.B.values, index=df.A).to_dict()
 
 load_dotenv()
 
-def home(request):
+def redirect_to_app(request):
+    return redirect('/ra/')
+
+def index(request):
     token = os.getenv('KEY')
     if not token:
         raise ValueError('API key not found')
@@ -27,7 +30,7 @@ def home(request):
     context = {
         'token': token
     }
-    return render(request, 'home.html', context)
+    return render(request, 'index.html', context)
 
 # API header connect
 def get_header():
