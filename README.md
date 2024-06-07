@@ -11,12 +11,12 @@
 - 리스트 노출
 
 #### 진행사항
-- [x] 라이엇 API 송수신 구성데이터 확인
-- [x] 기본 송수신 requests 구현
-- [x] Django ra/views.py 적용
-- [x] Django urls.py 수정
-- [x] html 표시 적용
-- [x] 아레나 순위 적용
+- [x] ~~라이엇 API 송수신 구성데이터 확인~~
+- [x] ~~기본 송수신 requests 구현~~
+- [x] ~~Django ra/views.py 적용~~
+- [x] ~~Django urls.py 수정~~
+- [x] ~~html 표시 적용~~
+- [x] ~~아레나 순위 적용~~
 - [ ] 솔랭, 팀 구분
 - [ ] CSS 적용 
 
