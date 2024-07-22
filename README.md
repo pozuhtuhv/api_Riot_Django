@@ -31,9 +31,9 @@
 4. http://127.0.0.1:8000/ra/
 5. Username and Tagline / search
 
-![docs](https://raw.githubusercontent.com/pozuhtuhv/0000_imgstorage/main/framework_Django_Riot_1.png)
+![docs](img/framework_Django_Riot_1.png)
 
-![docs](https://raw.githubusercontent.com/pozuhtuhv/0000_imgstorage/main/framework_Django_Riot_2.png)
+![docs](img/framework_Django_Riot_2.png)
 
 ### docs
 https://developer.riotgames.com/
